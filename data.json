@@ -1,0 +1,27 @@
+{
+  "L2": [
+    {
+      "nom": "Géométrie Affine - Bases",
+      "topics": ["Géo Affine", "Espaces Vectoriels"],
+      "cours": true,
+      "exercice": true,
+      "lien": "pdfs/l2_geo_affine.pdf"
+    },
+    {
+      "nom": "Calcul Différentiel",
+      "topics": ["Analyse", "Jacobiennes"],
+      "cours": true,
+      "exercice": false,
+      "lien": "pdfs/l2_calcul_diff.pdf"
+    }
+  ],
+  "Terminale": [
+    {
+      "nom": "Probabilités Discrètes",
+      "topics": ["Dénombrement", "Loi Binomiale"],
+      "cours": false,
+      "exercice": true,
+      "lien": "pdfs/term_proba.pdf"
+    }
+  ]
+}
