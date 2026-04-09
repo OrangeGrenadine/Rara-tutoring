@@ -27,73 +27,93 @@
     </div>
 
     <script>
-        let allData = {};
-        let currentCategory = 'All';
+    let allData = {};
+    let currentCategory = 'All';
 
-        async function loadData() {
-            try {
-                const response = await fetch('data.json?t=' + new Date().getTime());
-                allData = await response.json();
-                renderFilters();
-                renderCards();
-            } catch (e) { console.error("Erreur JSON", e); }
-        }
+    // 1. Charger les données
+    async function loadData() {
+        try {
+            const response = await fetch('data.json?t=' + new Date().getTime());
+            allData = await response.json();
+            renderFilters();
+            renderCards();
+        } catch (e) { console.error("Erreur JSON", e); }
+    }
 
-        function renderFilters() {
-            const container = document.getElementById('filter-buttons');
-            Object.keys(allData).forEach(cat => {
-                const btn = document.createElement('button');
-                btn.className = "bg-white text-slate-700 px-5 py-2 rounded-xl font-semibold shadow-sm hover:bg-slate-100 transition border border-slate-100";
-                btn.innerText = cat;
-                btn.onclick = () => { currentCategory = cat; renderCards(document.getElementById('search').value); };
-                container.appendChild(btn);
-            });
-        }
+    // 2. Créer les boutons dynamiquement
+    function renderFilters() {
+        const container = document.getElementById('filter-buttons');
+        Object.keys(allData).forEach(cat => {
+            const btn = document.createElement('button');
+            // Design par défaut (non sélectionné)
+            btn.className = "category-btn bg-white text-slate-700 px-5 py-2 rounded-xl font-semibold shadow-sm hover:bg-slate-100 transition border border-slate-100";
+            btn.innerText = cat;
+            btn.onclick = () => updateCategory(cat, btn);
+            container.appendChild(btn);
+        });
+    }
 
-        function renderCards(filterText = '') {
-            const container = document.getElementById('results');
-            container.innerHTML = '';
-            let items = [];
+    // 3. Gérer le changement de catégorie ET de couleur
+    function updateCategory(cat, clickedBtn) {
+        currentCategory = cat;
 
-            Object.keys(allData).forEach(cat => {
-                if (currentCategory === 'All' || currentCategory === cat) {
-                    allData[cat].forEach(item => items.push({ ...item, category: cat }));
-                }
-            });
+        // On remet tous les boutons en mode "non sélectionné"
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.classList.remove('bg-indigo-600', 'text-white', 'border-transparent');
+            btn.classList.add('bg-white', 'text-slate-700', 'border-slate-100');
+        });
 
-            const searchLower = filterText.toLowerCase();
-            const filtered = items.filter(i => 
-                i.nom.toLowerCase().includes(searchLower) || 
-                i.topics.some(t => t.toLowerCase().includes(searchLower))
-            );
+        // On met le bouton cliqué en mode "sélectionné" (Indigo)
+        clickedBtn.classList.remove('bg-white', 'text-slate-700', 'border-slate-100');
+        clickedBtn.classList.add('bg-indigo-600', 'text-white', 'border-transparent');
 
-            filtered.forEach(item => {
-                const card = document.createElement('div');
-                card.className = "bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col";
-                
-                const topics = item.topics.map(t => `<span class="bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-1 rounded-lg uppercase tracking-wide">${t}</span>`).join('');
-                
-                card.innerHTML = `
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-xs font-black text-indigo-500 uppercase tracking-tighter italic">${item.category}</span>
-                        <div class="flex gap-2 text-lg">
-                            ${item.cours ? '📖' : ''} ${item.exercice ? '✍️' : ''}
-                        </div>
+        renderCards(document.getElementById('search').value);
+    }
+
+    // 4. Afficher les cartes
+    function renderCards(filterText = '') {
+        const container = document.getElementById('results');
+        container.innerHTML = '';
+        let items = [];
+
+        Object.keys(allData).forEach(cat => {
+            if (currentCategory === 'All' || currentCategory === cat) {
+                allData[cat].forEach(item => items.push({ ...item, category: cat }));
+            }
+        });
+
+        const searchLower = filterText.toLowerCase();
+        const filtered = items.filter(i => 
+            i.nom.toLowerCase().includes(searchLower) || 
+            i.topics.some(t => t.toLowerCase().includes(searchLower))
+        );
+
+        filtered.forEach(item => {
+            const card = document.createElement('div');
+            card.className = "bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col";
+            const topics = item.topics.map(t => `<span class="bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-1 rounded-lg uppercase tracking-wide">${t}</span>`).join('');
+            
+            card.innerHTML = `
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-xs font-black text-indigo-500 uppercase tracking-tighter italic">${item.category}</span>
+                    <div class="flex gap-2 text-lg">
+                        ${item.cours ? '📖' : ''} ${item.exercice ? '✍️' : ''}
                     </div>
-                    <h2 class="text-xl font-bold text-slate-800 leading-tight mb-4 flex-grow">
-                        <a href="${item.lien}" target="_blank" class="hover:text-indigo-600">${item.nom}</a>
-                    </h2>
-                    <div class="flex flex-wrap gap-2 mb-6">${topics}</div>
-                    <a href="${item.lien}" target="_blank" class="w-full text-center bg-slate-900 text-white py-3 rounded-2xl font-bold hover:bg-indigo-600 transition-colors">
-                        Consulter le PDF
-                    </a>
-                `;
-                container.appendChild(card);
-            });
-        }
+                </div>
+                <h2 class="text-xl font-bold text-slate-800 leading-tight mb-4 flex-grow">
+                    <a href="${item.lien}" target="_blank" class="hover:text-indigo-600">${item.nom}</a>
+                </h2>
+                <div class="flex flex-wrap gap-2 mb-6">${topics}</div>
+                <a href="${item.lien}" target="_blank" class="w-full text-center bg-slate-900 text-white py-3 rounded-2xl font-bold hover:bg-indigo-600 transition-colors">
+                    Consulter le PDF
+                </a>
+            `;
+            container.appendChild(card);
+        });
+    }
 
-        document.getElementById('search').addEventListener('input', (e) => renderCards(e.target.value));
-        loadData();
-    </script>
+    document.getElementById('search').addEventListener('input', (e) => renderCards(e.target.value));
+    loadData();
+</script>
 </body>
 </html>
