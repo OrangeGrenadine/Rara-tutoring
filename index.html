@@ -30,9 +30,9 @@
     let allData = {};
     let currentCategory = 'All';
 
-    // 1. Charger les données
     async function loadData() {
         try {
+            // Anti-cache pour voir les modifs du JSON direct
             const response = await fetch('data.json?t=' + new Date().getTime());
             allData = await response.json();
             renderFilters();
@@ -40,37 +40,58 @@
         } catch (e) { console.error("Erreur JSON", e); }
     }
 
-    // 2. Créer les boutons dynamiquement
+    // Cette fonction crée TOUS les boutons (Tous + les catégories du JSON)
     function renderFilters() {
         const container = document.getElementById('filter-buttons');
+        container.innerHTML = ''; // On vide au cas où
+
+        // 1. Créer d'abord le bouton "Tous"
+        const btnAll = createBtn("Tous", "All", true);
+        container.appendChild(btnAll);
+
+        // 2. Créer les boutons pour chaque catégorie trouvée dans le JSON
         Object.keys(allData).forEach(cat => {
-            const btn = document.createElement('button');
-            // Design par défaut (non sélectionné)
-            btn.className = "category-btn bg-white text-slate-700 px-5 py-2 rounded-xl font-semibold shadow-sm hover:bg-slate-100 transition border border-slate-100";
-            btn.innerText = cat;
-            btn.onclick = () => updateCategory(cat, btn);
+            const btn = createBtn(cat, cat, false);
             container.appendChild(btn);
         });
     }
 
-    // 3. Gérer le changement de catégorie ET de couleur
+    // Utilitaire pour fabriquer un bouton avec le bon style
+    function createBtn(label, value, isActive) {
+        const btn = document.createElement('button');
+        btn.innerText = label;
+        btn.setAttribute('data-category', value); // On lui donne une étiquette
+        
+        // Classes de base communes
+        const baseClasses = "category-btn px-5 py-2 rounded-xl font-semibold shadow-sm transition border ";
+        
+        // Style selon s'il est actif ou non au départ
+        if (isActive) {
+            btn.className = baseClasses + "bg-indigo-600 text-white border-transparent";
+        } else {
+            btn.className = baseClasses + "bg-white text-slate-700 border-slate-100 hover:bg-slate-50";
+        }
+
+        btn.onclick = () => updateCategory(value, btn);
+        return btn;
+    }
+
     function updateCategory(cat, clickedBtn) {
         currentCategory = cat;
 
-        // On remet tous les boutons en mode "non sélectionné"
+        // On remet TOUS les boutons en blanc
         document.querySelectorAll('.category-btn').forEach(btn => {
             btn.classList.remove('bg-indigo-600', 'text-white', 'border-transparent');
             btn.classList.add('bg-white', 'text-slate-700', 'border-slate-100');
         });
 
-        // On met le bouton cliqué en mode "sélectionné" (Indigo)
+        // On allume le bouton cliqué en mauve
         clickedBtn.classList.remove('bg-white', 'text-slate-700', 'border-slate-100');
         clickedBtn.classList.add('bg-indigo-600', 'text-white', 'border-transparent');
 
         renderCards(document.getElementById('search').value);
     }
 
-    // 4. Afficher les cartes
     function renderCards(filterText = '') {
         const container = document.getElementById('results');
         container.innerHTML = '';
