@@ -59,6 +59,14 @@
   ],
   "Terminale": [
     {
+      "nom": "Tutorat 11-04-2026",
+      "topics": ["Dénombrement"],
+      "cours": true,
+      "exercice": true,
+      "lien": "https://drive.google.com/file/d/1U_YqCYWzzqRiRMSbXN8E8opSux8fTKtH/view?usp=sharing"
+    },
+    
+    {
       "nom": "Tutorat 28-03-2026",
       "topics": ["Équations paramétriques"],
       "cours": false,
