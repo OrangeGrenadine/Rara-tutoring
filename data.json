@@ -26,7 +26,7 @@
 
     {
       "nom": "Tutorat Analyse3",
-      "topics": ["Ouverts/Fermés", "Limites", "Diﬀérentiabilités", "Extrémas"],
+      "topics": ["Ouverts/Fermés", "Limites", "Différentiabilités", "Extrémas"],
       "cours": false,
       "exercice": true,
       "lien": "https://drive.google.com/file/d/1XsYm8A477OLkvzUz4-AYA9P-LBVVlkJN/view?usp=sharing"
