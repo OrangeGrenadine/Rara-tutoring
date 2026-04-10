@@ -1,43 +1,11 @@
 {
   "L2": [
     {
-      "nom": "Tutorat 13-11-2025",
-      "topics": ["Matrice","déterminant","rang", "Groupe Symétrique"],
-      "cours": false,
-      "exercice": true,
-      "lien": "https://drive.google.com/file/d/1rsGbISo4CbYMYdRJFBcbP_H7o5hTvBv-/view?usp=sharing"
-    },
-
-    {
-      "nom": "Tutorat 18-11-2025",
-      "topics": ["Groupe Symétrique", "Série Entière"],
+      "nom": "Tutorat 09-04-2026",
+      "topics": ["Géométrie Affine"],
       "cours": true,
       "exercice": true,
-      "lien": "https://drive.google.com/file/d/1-7BY0wYnuAJfAeFJ1YK_Oy0OGes2gH6R/view?usp=sharing"
-    },
-
-    {
-      "nom": "Tutorat 25-11-2025",
-      "topics": ["Fonctions plusieurs variables", "Limites", "Dérivées partielles"],
-      "cours": false,
-      "exercice": true,
-      "lien": "https://drive.google.com/file/d/1vQ0obwpBELtZ1vV6WdY1WoBDwjUFWe-G/view?usp=sharing"
-    },
-
-    {
-      "nom": "Tutorat Analyse3",
-      "topics": ["Ouverts/Fermés", "Limites", "Diﬀérentiabilités", "Extrémas"],
-      "cours": false,
-      "exercice": true,
-      "lien": "https://drive.google.com/file/d/1XsYm8A477OLkvzUz4-AYA9P-LBVVlkJN/view?usp=sharing"
-    },
-
-    {
-      "nom": "Tutorat 31-03-2026",
-      "topics": ["Probabilités", "Tribus", "Convergences simples", "Convergences uniformes"],
-      "cours": true,
-      "exercice": true,
-      "lien": "https://drive.google.com/file/d/1W_jfKmGBo2vdUnV3uD-xNtBVYUcZyuSX/view?usp=sharing"
+      "lien": "https://drive.google.com/file/d/1uhJoe0GAULBOpisD1MIxE9POfhT2Engk/view?usp=sharing"
     },
 
     {
@@ -49,21 +17,85 @@
     },
 
     {
-      "nom": "Tutorat 09-04-2026",
-      "topics": ["Géométrie Affine"],
+      "nom": "Tutorat 31-03-2026",
+      "topics": ["Probabilités", "Tribus", "Convergences simples", "Convergences uniformes"],
       "cours": true,
       "exercice": true,
-      "lien": "https://drive.google.com/file/d/1uhJoe0GAULBOpisD1MIxE9POfhT2Engk/view?usp=sharing"
+      "lien": "https://drive.google.com/file/d/1W_jfKmGBo2vdUnV3uD-xNtBVYUcZyuSX/view?usp=sharing"
+    },
+
+    {
+      "nom": "Tutorat Analyse3",
+      "topics": ["Ouverts/Fermés", "Limites", "Diﬀérentiabilités", "Extrémas"],
+      "cours": false,
+      "exercice": true,
+      "lien": "https://drive.google.com/file/d/1XsYm8A477OLkvzUz4-AYA9P-LBVVlkJN/view?usp=sharing"
+    },
+
+    {
+      "nom": "Tutorat 25-11-2025",
+      "topics": ["Fonctions plusieurs variables", "Limites", "Dérivées partielles"],
+      "cours": false,
+      "exercice": true,
+      "lien": "https://drive.google.com/file/d/1vQ0obwpBELtZ1vV6WdY1WoBDwjUFWe-G/view?usp=sharing"
+    },
+
+    {
+      "nom": "Tutorat 18-11-2025",
+      "topics": ["Groupe Symétrique", "Série Entière"],
+      "cours": true,
+      "exercice": true,
+      "lien": "https://drive.google.com/file/d/1-7BY0wYnuAJfAeFJ1YK_Oy0OGes2gH6R/view?usp=sharing"
+    },
+
+    {
+      "nom": "Tutorat 13-11-2025",
+      "topics": ["Matrice","déterminant","rang", "Groupe Symétrique"],
+      "cours": false,
+      "exercice": true,
+      "lien": "https://drive.google.com/file/d/1rsGbISo4CbYMYdRJFBcbP_H7o5hTvBv-/view?usp=sharing"
     }
 
   ],
   "Terminale": [
     {
-      "nom": "Cours sur le Dénombrement",
-      "topics": ["Dénombrement", "Combinatoire"],
+      "nom": "Tutorat 28-03-2026",
+      "topics": ["Équations paramétriques"],
+      "cours": false,
+      "exercice": true,
+      "lien": "https://drive.google.com/file/d/1P_ma-WD8j-K61ZtNycqi6KILZTkrjrL_/view?usp=sharing"
+    },
+
+    {
+      "nom": "Tutorat 21-03-2026",
+      "topics": ["Primitives", "Équations diﬀérentielles"],
       "cours": true,
-      "exercice": false,
-      "lien": "https://drive.google.com/file/d/TON_ID_DE_FICHIER_2/view?usp=sharing"
+      "exercice": true,
+      "lien": "https://drive.google.com/file/d/1FG9CUlYlrttkWm-01Z990_gQP362sVt7/view?usp=sharing"
+    },
+
+    {
+      "nom": "Tutorat 14-03-2026",
+      "topics": ["Étude Variations d'une fonction", "Dérivations", "Logarithme népérien", "Suites", "Récurrences"],
+      "cours": true,
+      "exercice": true,
+      "lien": "https://drive.google.com/file/d/1FNuJjt6gSBjaezCgfl168m_x8i3t5aWY/view?usp=sharing"
+    },
+
+    {
+      "nom": "Tutorat 7-03-2026",
+      "topics": ["Étude Variations d'une fonction", "Limites", "Dérivations", "Logarithme népérien"],
+      "cours": true,
+      "exercice": true,
+      "lien": "https://drive.google.com/file/d/1whwFOvypBfpwNLgsMzpHWWeE--uC6fo2/view?usp=sharing"
+    },
+
+    {
+      "nom": "Tutorat 4-03-2026",
+      "topics": ["Fonctions", "Étude Variations d'une fonction", "Limites", "Dérivations"],
+      "cours": true,
+      "exercice": true,
+      "lien": "https://drive.google.com/file/d/1XScYjP33eoj_JalygzGWjZDELJu4voe9/view?usp=sharing"
     }
   ]
 }
