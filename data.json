@@ -1,6 +1,14 @@
 {
   "L2": [
     {
+      "nom": "Tutorat 21-04-2026",
+      "topics": ["Produit scalaire", "Projection orthogonale", Orthonormalisation de Gram-Schmidt],
+      "cours": true,
+      "exercice": true,
+      "lien": "https://drive.google.com/file/d/1dDhV6z7Y039EI10g1udutnKgU1-6LJgq/view?usp=sharing"
+    },
+    
+    {
       "nom": "Tutorat 09-04-2026",
       "topics": ["Géométrie Affine"],
       "cours": true,
